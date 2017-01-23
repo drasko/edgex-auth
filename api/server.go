@@ -12,7 +12,7 @@ func Server() http.Handler {
 	mux := bone.New()
 
 	// Status
-	mux.Get("/status", http.HandlerFunc(healthCheck))
+	mux.Get("/health", http.HandlerFunc(healthCheck))
 
 	mux.Post("/sessions", http.HandlerFunc(login))
 	mux.Post("/users", http.HandlerFunc(registerUser))

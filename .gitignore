@@ -26,3 +26,6 @@ _testmain.go
 *.test
 *.prof
 .vagrant
+
+# Vim
+*.swp
