@@ -5,8 +5,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/mainflux/go-auth/domain"
-	"github.com/mainflux/go-auth/services"
+	"github.com/drasko/go-auth/domain"
+	"github.com/drasko/go-auth/services"
 )
 
 type userReq struct {

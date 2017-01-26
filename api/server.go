@@ -17,7 +17,7 @@ func Server() http.Handler {
 	mux.Post("/sessions", http.HandlerFunc(login))
 	mux.Post("/users", http.HandlerFunc(registerUser))
 
-	mux.Post("/access-checks", http.HandlerFunc(checkAccess))
+	//mux.Post("/access-checks", http.HandlerFunc(checkAccess))
 
 	n := negroni.Classic()
 	n.UseHandler(mux)
