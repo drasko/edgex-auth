@@ -29,3 +29,6 @@ _testmain.go
 
 # Vim
 *.swp
+
+# Binary
+go-auth
