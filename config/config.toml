@@ -1,2 +1,0 @@
-redisURL = "0.0.0.0:6379"
-secretKey = "secret-api-key"
