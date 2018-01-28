@@ -11,11 +11,14 @@ defaultEntryPoints = ["http"]
     [entryPoints.http]
     address = ":3000"
 
+    [entryPoints.http.auth.forward]
+    address = "https://auth-server/auth"
+
 [frontends]
     [frontends.frontend_manager]
     backend = "backend_manager"
         [frontends.frontend_manager.routes.routes_manager]
-        rule = "Path: /info, /users, /users/{id:[0-9]+}, /tokens, /clients, /clients/{id:[0-9]+}, /channels, /channels/{id:[0,9]+}"
+        rule = "Path: /status, /users, /users/{id:[0-9]+}, /login, /auth"
 [backends]
     [backends.backend_manager]
         [backends.backend_manager.servers.server1]
@@ -40,4 +43,3 @@ address = ":8080"
 
 # Enable File configuration backend
 [file]
-
