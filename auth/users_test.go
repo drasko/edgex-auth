@@ -6,9 +6,8 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/drasko/edgex-auth/auth"
 	"golang.org/x/crypto/bcrypt"
-
-	"github.com/drasko/go-auth/domain"
 )
 
 func TestCreateUser(t *testing.T) {
@@ -21,9 +20,9 @@ func TestCreateUser(t *testing.T) {
 	}
 
 	for i, c := range cases {
-		user, err := domain.CreateUser(c.username, c.username)
+		user, err := auth.CreateUser(c.username, c.username)
 		if err != nil {
-			_, ok := err.(*domain.AuthError)
+			_, ok := err.(*auth.AuthError)
 			if !ok {
 				t.Errorf("case %d: all errors must be AuthError", i+1)
 			}
@@ -38,7 +37,7 @@ func TestCreateUser(t *testing.T) {
 			t.Errorf("case %d: invalid password", i+1)
 		}
 
-		subject, err := domain.SubjectOf(user.MasterKey)
+		subject, err := auth.SubjectOf(user.MasterKey)
 		if err != nil {
 			t.Errorf("case %d: invalid master key", i+1)
 		}
@@ -62,7 +61,7 @@ func TestCheckPassword(t *testing.T) {
 	}
 
 	for i, c := range cases {
-		err := domain.CheckPassword(c.plain, c.hashed)
+		err := auth.CheckPassword(c.plain, c.hashed)
 
 		hasErr := err != nil
 		if c.hasErr != hasErr {

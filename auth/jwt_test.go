@@ -3,12 +3,12 @@ package auth_test
 import (
 	"testing"
 
-	"github.com/drasko/go-auth/domain"
+	"github.com/drasko/edgex-auth/auth"
 )
 
 func TestSubjectOf(t *testing.T) {
 	user := "test-user"
-	key, _ := domain.CreateKey(user)
+	key, _ := auth.CreateKey(user)
 
 	cases := []struct {
 		user   string
@@ -20,7 +20,7 @@ func TestSubjectOf(t *testing.T) {
 	}
 
 	for i, c := range cases {
-		subject, err := domain.SubjectOf(c.token)
+		subject, err := auth.SubjectOf(c.token)
 		if c.hasErr && err == nil {
 			t.Errorf("case %d: expected error to be thrown", i+1)
 			continue
