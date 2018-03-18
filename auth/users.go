@@ -13,7 +13,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 	"gopkg.in/mgo.v2/bson"
 
-	"github.com/edgexfoundry/export-go/mongo"
+	"github.com/drasko/edgex-auth/mongo"
 )
 
 type User struct {

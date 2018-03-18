@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/edgexfoundry/export-go/mongo"
+	"github.com/drasko/edgex-auth/mongo"
 	"go.uber.org/zap"
 	"gopkg.in/mgo.v2/bson"
 )
