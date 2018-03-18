@@ -14,10 +14,10 @@
   version = "1.2"
 
 [[projects]]
+  branch = "master"
   name = "github.com/satori/go.uuid"
   packages = ["."]
-  revision = "f58768cc1a7a7e77a3bd49e98cdd21419399b6a3"
-  version = "v1.2.0"
+  revision = "36e9d2ebbde5e3f13ab2e25625fd453271d6522e"
 
 [[projects]]
   name = "go.uber.org/atomic"
@@ -68,6 +68,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "e6a562604b365f9feff9a6b8208e842fc2b07eaf3378f7667b03dc198d14e7eb"
+  inputs-digest = "f9c1f4932740e540139ee98fc686e5eed80cd505fd2063db11fd99b13471afaa"
   solver-name = "gps-cdcl"
   solver-version = 1
