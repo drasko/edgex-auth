@@ -17,6 +17,10 @@ services:
       - $PWD/proxy/nginx/ssl/certs/mainflux-server.crt:/etc/ssl/certs/mainflux-server.crt
       - $PWD/proxy/nginx/ssl/certs/mainflux-server.key:/etc/ssl/private/mainflux-server.key
       - $PWD/proxy/nginx/ssl/dhparam.pem:/etc/ssl/certs/dhparam.pem
+    links:
+      - edgex-auth
+    depends_on:
+      - edgex-auth
     ports:
       - "80:80"
       - "443:443"
@@ -56,9 +60,13 @@ services:
   # EdgeX Auth
   ###
   edgex-auth:
-    image: drasko/edgex-auth:latest
+    image: edgex-auth:latest
     container_name: edgex-auth
     links:
       - mongo
+    depends_on:
+      - mongo
+    environment:
+      - AUTH_MONGO_URL=mongo
     ports:
       - "8089:8089"

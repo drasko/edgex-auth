@@ -24,7 +24,7 @@ func httpServer() http.Handler {
 	mux.Post("/users", http.HandlerFunc(createUser))
 	mux.Delete("/users/:id", http.HandlerFunc(deleteUser))
 	mux.Post("/login", http.HandlerFunc(login))
-	mux.Post("/auth", http.HandlerFunc(authorize))
+	mux.Get("/auth", http.HandlerFunc(authorize))
 	return mux
 }
 

@@ -20,6 +20,18 @@ go buld -o edgex-auth
 - Login
 - Access (AuthN and AuthZ) check
 
+### Usage
+```
+# Create user
+curl -isS -X POST -k --cacert proxy/nginx/ssl/certs/mainflux-server.crt https://localhost:443/login -d '{"username":"drasko", "password":"123"}'
+
+# Get the token
+curl -isS -X POST -k --cacert proxy/nginx/ssl/certs/mainflux-server.crt https://localhost:443/login -d '{"username":"drasko", "password":"123"}'
+
+# Use the token in `Authorization` header
+curl -k --cacert proxy/nginx/ssl/certs/mainflux-server.crt -H "Authorization: <user_token>" https://localhost/api/hello
+```
+
 ### License
 [Apache License, version 2.0](LICENSE)
 
