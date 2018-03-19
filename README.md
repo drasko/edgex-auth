@@ -23,10 +23,10 @@ go buld -o edgex-auth
 ### Usage
 ```
 # Create user
-curl -isS -X POST -k --cacert proxy/nginx/ssl/certs/mainflux-server.crt https://localhost:443/login -d '{"username":"drasko", "password":"123"}'
+curl -isS -X POST -k --cacert proxy/nginx/ssl/certs/mainflux-server.crt https://localhost/users -d '{"username":"drasko", "password":"123"}'
 
 # Get the token
-curl -isS -X POST -k --cacert proxy/nginx/ssl/certs/mainflux-server.crt https://localhost:443/login -d '{"username":"drasko", "password":"123"}'
+curl -isS -X POST -k --cacert proxy/nginx/ssl/certs/mainflux-server.crt https://localhost/login -d '{"username":"drasko", "password":"123"}'
 
 # Use the token in `Authorization` header
 curl -k --cacert proxy/nginx/ssl/certs/mainflux-server.crt -H "Authorization: <user_token>" https://localhost/api/hello
